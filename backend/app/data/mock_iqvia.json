@@ -1,0 +1,26 @@
+{
+  "default": {
+    "market_size_usd_mn": 0,
+    "cagr": 0,
+    "top_competitors": [],
+    "notes": "No mock IQVIA data"
+  },
+  "metformin": {
+    "market_size_usd_mn": 1200,
+    "cagr": 3.5,
+    "top_competitors": [
+      {"name": "GenericCorp", "share_pct": 22},
+      {"name": "HealthMeds", "share_pct": 15}
+    ],
+    "notes": "Large market in type-2 diabetes; repurpose opportunities in cardio-metabolic indications"
+  },
+  "montelukast": {
+    "market_size_usd_mn": 320,
+    "cagr": 1.2,
+    "top_competitors": [
+      {"name": "AllerMeds", "share_pct": 40}
+    ],
+    "notes": "Respiratory market; niche repurposing space"
+  }
+}
+
