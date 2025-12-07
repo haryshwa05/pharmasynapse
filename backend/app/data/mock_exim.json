@@ -1,0 +1,37 @@
+{
+  "metformin": {
+    "molecule": "Metformin",
+    "exports": [
+      {"country": "India", "year": 2024, "volume_tons": 1200, "value_usd_mn": 45.0},
+      {"country": "China", "year": 2024, "volume_tons": 950, "value_usd_mn": 32.5},
+      {"country": "EU", "year": 2024, "volume_tons": 260, "value_usd_mn": 12.0}
+    ],
+    "imports": [
+      {"country": "US", "year": 2024, "volume_tons": 520, "value_usd_mn": 18.5},
+      {"country": "Brazil", "year": 2024, "volume_tons": 190, "value_usd_mn": 6.8},
+      {"country": "South Africa", "year": 2024, "volume_tons": 120, "value_usd_mn": 4.2}
+    ],
+    "insights": [
+      "India and China represent the bulk of metformin API export value.",
+      "US remains the largest import destination; moderate diversification across LATAM and Africa."
+    ]
+  },
+  "montelukast": {
+    "molecule": "Montelukast",
+    "exports": [
+      {"country": "India", "year": 2024, "volume_tons": 310, "value_usd_mn": 14.0},
+      {"country": "China", "year": 2024, "volume_tons": 240, "value_usd_mn": 10.5},
+      {"country": "Israel", "year": 2024, "volume_tons": 80, "value_usd_mn": 4.4}
+    ],
+    "imports": [
+      {"country": "US", "year": 2024, "volume_tons": 140, "value_usd_mn": 6.3},
+      {"country": "Germany", "year": 2024, "volume_tons": 95, "value_usd_mn": 4.7},
+      {"country": "Mexico", "year": 2024, "volume_tons": 60, "value_usd_mn": 2.5}
+    ],
+    "insights": [
+      "India and China dominate montelukast API exports; Israel provides niche volumes.",
+      "US and EU imports suggest reliance on Asia for primary sourcing."
+    ]
+  }
+}
+

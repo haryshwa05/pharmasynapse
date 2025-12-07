@@ -1,0 +1,46 @@
+{
+  "metformin": {
+    "molecule": "Metformin",
+    "patents": [
+      {
+        "patent_number": "US1234567",
+        "title": "Extended-release metformin composition",
+        "assignee": "BigPharma Inc.",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2030-05-12",
+        "family_id": "FAM001",
+        "focus": "ER formulation",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "EP2345678",
+        "title": "Use of metformin in NAFLD",
+        "assignee": "UniTech",
+        "jurisdiction": "EU",
+        "status": "expired",
+        "expiry_date": "2021-09-30",
+        "family_id": "FAM002",
+        "focus": "New indication",
+        "fto_risk": "low"
+      }
+    ]
+  },
+
+  "montelukast": {
+    "molecule": "Montelukast",
+    "patents": [
+      {
+        "patent_number": "US7654321",
+        "title": "Montelukast formulation for pediatric asthma",
+        "assignee": "Respira Pharma",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2028-11-01",
+        "family_id": "FAM010",
+        "focus": "Pediatric formulation",
+        "fto_risk": "high"
+      }
+    ]
+  }
+}
