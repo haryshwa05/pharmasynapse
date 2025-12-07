@@ -1,0 +1,72 @@
+{
+  "metformin": [
+    {
+      "id": "deck_q1_strategy",
+      "title": "Metformin NAFLD Strategy Deck (Q1)",
+      "type": "strategy_deck",
+      "year": 2024,
+      "summary": "Position metformin for metabolic liver disease; prioritize HEOR and payer pilots.",
+      "key_takeaways": [
+        "Clinical positioning: leverage NAFLD trial signals for payer conversations.",
+        "Market access: target top 3 US payers with outcomes-based contracts.",
+        "Field action: emphasize metabolic comorbidity angle in HCP visits."
+      ],
+      "comparative_table": [
+        {"metric": "Target patients", "our_plan": "NAFLD + T2D overlap", "status_quo": "T2D only"},
+        {"metric": "Payer strategy", "our_plan": "Outcomes pilots", "status_quo": "Fee-for-service"},
+        {"metric": "Field focus", "our_plan": "Metabolic clinics", "status_quo": "Primary care broad"}
+      ],
+      "pdf_url": "https://example.com/mock/metformin_strategy_q1.pdf"
+    },
+    {
+      "id": "field_insights_nov",
+      "title": "Field Insights — Metformin (Nov)",
+      "type": "field_report",
+      "year": 2024,
+      "summary": "HCPs receptive to metabolic positioning; ask for more real-world evidence.",
+      "key_takeaways": [
+        "High openness to NAFLD messaging when paired with lifestyle support.",
+        "Need concise RWE one-pager for payers and key HCPs.",
+        "Competitive noise low; main pushback is on off-label perception."
+      ],
+      "comparative_table": [
+        {"metric": "Objection rate", "our_product": "Low", "competitor": "Medium"},
+        {"metric": "Evidence ask", "our_product": "RWE + trials", "competitor": "Guidelines only"}
+      ],
+      "pdf_url": "https://example.com/mock/metformin_field_insights.pdf"
+    }
+  ],
+  "montelukast": [
+    {
+      "id": "deck_asthma_compete",
+      "title": "Montelukast Competitive Deck",
+      "type": "strategy_deck",
+      "year": 2023,
+      "summary": "Differentiate in pediatric asthma; highlight safety monitoring protocol.",
+      "key_takeaways": [
+        "Lead with safety monitoring to preempt neuropsychiatric concerns.",
+        "Partner with allergy clinics for shared-care pathways.",
+        "Bundle patient education to reduce discontinuations."
+      ],
+      "comparative_table": [
+        {"metric": "Safety narrative", "our_product": "Proactive monitoring", "competitor": "Reactive"},
+        {"metric": "Channel", "our_product": "Allergy clinics", "competitor": "Retail focus"}
+      ],
+      "pdf_url": "https://example.com/mock/montelukast_competitive.pdf"
+    }
+  ],
+  "default": [
+    {
+      "id": "generic_strategy",
+      "title": "General Strategy Template",
+      "type": "template",
+      "year": 2024,
+      "summary": "Template slides for strategy and field insight rollups.",
+      "key_takeaways": [
+        "Use this as a placeholder when no molecule-specific docs exist."
+      ],
+      "comparative_table": []
+    }
+  ]
+}
+

@@ -57,17 +57,15 @@ class ClinicalTrialsAgent(WorkerBase):
 
         all_trials: List[Dict[str, Any]] = entry.get("trials", [])
 
+        filtered_trials = all_trials
         if disease:
             filtered_trials = [
-            t for t in all_trials
-            if disease.lower() in t.get("condition", "").lower()
+                t for t in all_trials
+                if disease.lower() in t.get("condition", "").lower()
             ]
-
-        # if no match, fall back to all trials so you never show 0 unless there are truly no trials
-        if not filtered_trials:
-            filtered_trials = all_trials
-        else:
-            filtered_trials = all_trials
+            # fall back to all trials if filter finds none
+            if not filtered_trials:
+                filtered_trials = all_trials
 
         overview = self._build_overview(filtered_trials, all_trials)
         result = {

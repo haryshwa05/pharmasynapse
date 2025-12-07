@@ -3,3 +3,5 @@ uvicorn[standard]
 httpx
 reportlab
 pydantic
+duckduckgo-search
+python-multipart
