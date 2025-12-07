@@ -1,38 +1,51 @@
-import asyncio
+from typing import Dict, Any, Optional
+
+from .iqvia_agent import IQVIAInsightsAgent
+from .patent_agent import PatentLandscapeAgent
 from .clinical_trials_agent import ClinicalTrialsAgent
-from .iqvia_agent import IQVIAAgent
-from app.report.report_generator import ReportGenerator
+
 
 class MasterAgent:
     def __init__(self):
-        self.ct_agent = ClinicalTrialsAgent()
-        self.iq_agent = IQVIAAgent()
-        self.reporter = ReportGenerator()
+        self.iqvia_agent = IQVIAInsightsAgent()
+        self.patent_agent = PatentLandscapeAgent()
+        self.clinical_agent = ClinicalTrialsAgent()
 
-    async def handle_query(self, payload: dict) -> dict:
-        """
-        Run ClinicalTrialsAgent and IQVIAAgent in parallel and synthesize result.
-        """
-        # prepare payloads (same molec)
-        molec = payload.get("molecule", "")
-        ct_payload = {"molecule": molec}
-        iq_payload = {"molecule": molec}
+    def analyze_molecule(
+        self,
+        molecule: str,
+        disease: Optional[str] = None,
+        region: Optional[str] = None,
+    ) -> Dict[str, Any]:
 
-        # run concurrently
-        ct_task = asyncio.create_task(self.ct_agent.run(ct_payload))
-        iq_task = asyncio.create_task(self.iq_agent.run(iq_payload))
+        iqvia_result = self.iqvia_agent.run({
+            "molecule": molecule,
+            "region": region
+        })
 
-        ct_res, iq_res = await asyncio.gather(ct_task, iq_task)
+        patent_result = self.patent_agent.run({
+            "molecule": molecule,
+            "indication": disease
+        })
 
-        # simple synthesis
-        summary = {
-            "molecule": molec,
-            "clinical_trials": ct_res,
-            "market_insights": iq_res
+        trials_result = self.clinical_agent.run({
+            "molecule": molecule,
+            "disease": disease
+        })
+
+        return {
+            "molecule": molecule,
+            "disease": disease,
+            "iqvia": iqvia_result,
+            "patents": patent_result,
+            "trials": trials_result
         }
 
-        # generate PDF path (same simple report)
-        pdf_path = self.reporter.generate_pdf(summary)
-        summary["report"] = {"pdf_path": pdf_path}
 
-        return summary
+if __name__ == "__main__":
+    ma = MasterAgent()
+    out = ma.analyze_molecule("metformin", disease="NAFLD", region="US")
+    print("Molecule:", out["molecule"])
+    print("IQVIA summary:", out["iqvia"].get("summary"))
+    print("Patent summary:", out["patents"].get("summary"))
+    print("Trials summary:", out["trials"].get("summary"))
