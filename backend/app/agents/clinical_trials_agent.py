@@ -1,90 +1,150 @@
-# backend/app/agents/clinical_trials_agent.py
-import httpx
 import json
 import os
-from .worker_base import WorkerAgent
+from typing import Dict, Any, Optional, List
+from collections import Counter
+from datetime import datetime
 
-CT_V2 = "https://clinicaltrials.gov/api/v2/studies"
-ALLORIGINS = "https://api.allorigins.win/raw?url="
-BASE_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-MOCK_FILE = os.path.join(DATA_DIR, "mock_clinical_trials.json")
+from .worker_base import WorkerBase
 
-def load_mock(term: str):
-    try:
-        with open(MOCK_FILE, "r", encoding="utf-8") as f:
-            j = json.load(f)
-        return j.get(term.lower(), j.get("default", {}))
-    except Exception:
-        return {"trials": [], "notes": "mock load failed"}
+DATA_FILE = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)),
+    "data",
+    "mock_clinical_trials.json"
+)
 
-class ClinicalTrialsAgent(WorkerAgent):
-    async def _get_json(self, client: httpx.AsyncClient, url: str, params=None):
-        r = await client.get(url, params=params, timeout=30.0)
-        r.raise_for_status()
-        try:
-            return r.json()
-        except Exception:
-            return json.loads(r.text)
 
-    def _parse_v2(self, studies):
-        parsed = []
-        for s in studies:
-            try:
-                proto = s.get("protocolSection", {})
-                idm = proto.get("identificationModule", {})
-                design = proto.get("designModule", {})
-                status_m = proto.get("statusModule", {})
-                conds = proto.get("conditionsModule", {})
-                sponsor_m = proto.get("sponsorCollaboratorsModule", {})
-                parsed.append({
-                    "nct_id": idm.get("nctId"),
-                    "title": idm.get("briefTitle"),
-                    "phase": design.get("phases", []),
-                    "status": status_m.get("overallStatus"),
-                    "conditions": conds.get("conditions", []),
-                    "sponsor": sponsor_m.get("leadSponsor", {}).get("name")
-                })
-            except Exception:
-                continue
-        return parsed
+class ClinicalTrialsAgent(WorkerBase):
+    """
+    Worker Agent that simulates querying ClinicalTrials.gov / WHO ICTRP.
+    It returns a structured overview of the trial landscape for a molecule/disease.
+    """
 
-    async def run(self, payload: dict) -> dict:
-        term = (payload.get("molecule") or payload.get("disease") or "").strip()
-        if not term:
-            return {"status": "error", "data": [], "notes": "No molecule provided"}
+    def __init__(self, data_path: str = DATA_FILE):
+        self.data_path = data_path
+        self._cache = None
 
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-            "Accept": "application/json",
-            "Referer": "https://clinicaltrials.gov/",
-            "Accept-Language": "en-US,en;q=0.9"
+    def _load_data(self) -> Dict[str, Any]:
+        if self._cache is None:
+            with open(self.data_path, "r") as f:
+                self._cache = json.load(f)
+        return self._cache
+
+    def _get_molecule_entry(self, molecule: str) -> Optional[Dict[str, Any]]:
+        data = self._load_data()
+        return data.get(molecule.lower())
+
+    def run(self, query: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        query example:
+        {
+          "molecule": "metformin",
+          "disease": "NAFLD"   # optional filter by condition
+        }
+        """
+        molecule = query.get("molecule")
+        disease = query.get("disease")
+
+        if not molecule:
+            raise ValueError("ClinicalTrialsAgent requires 'molecule' in query")
+
+        entry = self._get_molecule_entry(molecule)
+        if not entry:
+            return {
+                "molecule": molecule,
+                "available": False,
+                "message": f"No clinical trials mock data found for {molecule}"
+            }
+
+        all_trials: List[Dict[str, Any]] = entry.get("trials", [])
+
+        filtered_trials = all_trials
+        if disease:
+            filtered_trials = [
+                t for t in all_trials
+                if disease.lower() in t.get("condition", "").lower()
+            ]
+            # fall back to all trials if filter finds none
+            if not filtered_trials:
+                filtered_trials = all_trials
+
+        overview = self._build_overview(filtered_trials, all_trials)
+        result = {
+            "molecule": entry.get("molecule", molecule),
+            "filtered_by_disease": disease,
+            "trials": filtered_trials,
+            "overview": overview,
+            "available": True
+        }
+        result["summary"] = self._build_summary(result)
+        return result
+
+    def _build_overview(
+        self,
+        filtered_trials: List[Dict[str, Any]],
+        all_trials: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
+        """
+        Compute distributions by phase, status, sponsor, and how many look like repurposing.
+        """
+        def count_by_key(trials: List[Dict[str, Any]], key: str) -> Dict[str, int]:
+            return dict(Counter(t.get(key, "Unknown") for t in trials))
+
+        phase_dist = count_by_key(filtered_trials, "phase")
+        status_dist = count_by_key(filtered_trials, "status")
+        sponsor_dist = count_by_key(filtered_trials, "sponsor")
+
+        repurposing_trials = [t for t in filtered_trials if t.get("repurposing_flag")]
+        repurposing_count = len(repurposing_trials)
+
+        today = datetime.today().date().isoformat()
+
+        return {
+            "total_trials_for_molecule": len(all_trials),
+            "trials_in_scope": len(filtered_trials),
+            "phase_distribution": phase_dist,
+            "status_distribution": status_dist,
+            "top_sponsors": sponsor_dist,
+            "repurposing_trial_count": repurposing_count,
+            "as_of_date": today
         }
 
-        # 1) Try direct v2 API with proper headers
-        try:
-            async with httpx.AsyncClient(headers=headers) as client:
-                body = await self._get_json(client, CT_V2, params={"query.term": term, "pageSize": "20"})
-            studies = body.get("studies", [])
-            parsed = self._parse_v2(studies)
-            return {"status": "ok", "n_found": len(parsed), "data": parsed, "notes": "Fetched from clinicaltrials.gov v2"}
-        except Exception as e_direct:
-            direct_err = repr(e_direct)
+    def _build_summary(self, result: Dict[str, Any]) -> str:
+        mol = result["molecule"]
+        ov = result["overview"]
+        disease = result.get("filtered_by_disease")
 
-        # 2) Try AllOrigins proxy (may be flaky)
-        try:
-            proxied = ALLORIGINS + CT_V2 + f"?query.term={term}&pageSize=20"
-            async with httpx.AsyncClient(headers=headers) as client:
-                body = await self._get_json(client, proxied, params=None)
-            studies = body.get("studies", []) if isinstance(body, dict) else []
-            parsed = self._parse_v2(studies)
-            if parsed:
-                return {"status": "ok", "n_found": len(parsed), "data": parsed, "notes": "Fetched via AllOrigins proxy"}
-        except Exception as e_proxy:
-            proxy_err = repr(e_proxy)
+        scope_text = (
+            f"for {mol}"
+            + (f" in {disease}" if disease else "")
+        )
 
-        # 3) Fallback to local mock (guaranteed)
-        mock = load_mock(term)
-        trials = mock.get("trials", []) if isinstance(mock, dict) else []
-        notes = f"Direct error: {direct_err} | Proxy error: {proxy_err} | returned mock"
-        return {"status": "fallback", "n_found": len(trials), "data": trials, "notes": notes}
+        txt = (
+            f"Clinical trial landscape {scope_text}: "
+            f"{ov['trials_in_scope']} trials in scope "
+            f"(out of {ov['total_trials_for_molecule']} total for this molecule in the mock dataset). "
+        )
+
+        phase_dist = ov["phase_distribution"]
+        if phase_dist:
+            parts = [f"{p}: {c}" for p, c in phase_dist.items()]
+            txt += "Phase distribution – " + ", ".join(parts) + ". "
+
+        status_dist = ov["status_distribution"]
+        if status_dist:
+            parts = [f"{s}: {c}" for s, c in status_dist.items()]
+            txt += "Status mix – " + ", ".join(parts) + ". "
+
+        if ov["repurposing_trial_count"] > 0:
+            txt += f"{ov['repurposing_trial_count']} trial(s) appear to be repurposing-focused in this mock dataset."
+
+        return txt
+
+
+# Quick self-test: python -m app.agents.clinical_trials_agent
+if __name__ == "__main__":
+    agent = ClinicalTrialsAgent()
+    result = agent.run({"molecule": "metformin", "disease": "NAFLD"})
+    print("Available:", result.get("available"))
+    print("Overview:", result.get("overview"))
+    print("Summary:", result.get("summary"))
+    print("Trials returned:", len(result.get("trials", [])))

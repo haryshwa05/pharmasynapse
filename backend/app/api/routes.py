@@ -19,5 +19,5 @@ async def run_research(payload: QueryRequest):
 async def test_clinical(molecule: str):
     from app.agents.clinical_trials_agent import ClinicalTrialsAgent
     agent = ClinicalTrialsAgent()
-    result = await agent.run({"molecule": molecule})
+    result = agent.run({"molecule": molecule})
     return result

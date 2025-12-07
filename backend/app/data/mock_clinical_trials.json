@@ -1,26 +1,65 @@
 {
-    "default": {
-      "market_size_usd_mn": 0,
-      "cagr": 0,
-      "top_competitors": [],
-      "notes": "No mock IQVIA data"
-    },
-    "metformin": {
-      "market_size_usd_mn": 1200,
-      "cagr": 3.5,
-      "top_competitors": [
-        {"name":"GenericCorp","share_pct":22},
-        {"name":"HealthMeds","share_pct":15}
-      ],
-      "notes": "Large market in type-2 diabetes; repurpose opportunities in cardio-metabolic indications"
-    },
-    "montelukast": {
-      "market_size_usd_mn": 320,
-      "cagr": 1.2,
-      "top_competitors": [
-        {"name":"AllerMeds","share_pct":40}
-      ],
-      "notes": "Respiratory market; niche repurposing space"
-    }
+  "metformin": {
+    "molecule": "Metformin",
+    "trials": [
+      {
+        "trial_id": "NCT00011111",
+        "title": "Metformin for treatment of NAFLD in adults",
+        "phase": "Phase 2",
+        "status": "Recruiting",
+        "condition": "Non-alcoholic fatty liver disease",
+        "sponsor": "Academic Hospital A",
+        "start_date": "2023-01-15",
+        "estimated_completion_date": "2026-06-30",
+        "registry": "ClinicalTrials.gov",
+        "locations": ["US", "Canada"],
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT00022222",
+        "title": "Metformin add-on therapy in insulin-resistant obesity",
+        "phase": "Phase 3",
+        "status": "Active, not recruiting",
+        "condition": "Obesity with insulin resistance",
+        "sponsor": "BigPharma Inc.",
+        "start_date": "2021-05-01",
+        "estimated_completion_date": "2025-12-31",
+        "registry": "ClinicalTrials.gov",
+        "locations": ["EU", "US"],
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT00033333",
+        "title": "Low-dose metformin in prediabetes",
+        "phase": "Phase 4",
+        "status": "Completed",
+        "condition": "Prediabetes",
+        "sponsor": "University B",
+        "start_date": "2018-03-10",
+        "estimated_completion_date": "2022-07-15",
+        "registry": "WHO ICTRP",
+        "locations": ["India"],
+        "repurposing_flag": false
+      }
+    ]
+  },
+
+  "montelukast": {
+    "molecule": "Montelukast",
+    "trials": [
+      {
+        "trial_id": "NCT11112222",
+        "title": "Montelukast for chronic urticaria",
+        "phase": "Phase 2",
+        "status": "Recruiting",
+        "condition": "Chronic spontaneous urticaria",
+        "sponsor": "Dermato Pharma",
+        "start_date": "2022-09-01",
+        "estimated_completion_date": "2025-01-31",
+        "registry": "ClinicalTrials.gov",
+        "locations": ["Germany"],
+        "repurposing_flag": true
+      }
+    ]
   }
-  
+}
