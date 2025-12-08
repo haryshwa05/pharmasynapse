@@ -55,6 +55,9 @@ class IQVIAInsightsAgent(WorkerBase):
             "atc_class": entry.get("atc_class"),
             "regions": selected_region,
             "therapy_dynamics": entry.get("therapy_dynamics", []),
+            "sales_trends": entry.get("sales_trends", []),
+            "volume_shifts": entry.get("volume_shifts", []),
+            "therapy_competition": entry.get("therapy_competition", []),
             "available": True
         }
 

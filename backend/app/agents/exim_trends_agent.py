@@ -133,6 +133,9 @@ class EximTrendsAgent(WorkerBase):
         if dependency:
             lead_dep = dependency[0]
             insights.append(f"Highest import dependency: {lead_dep['country']} at {lead_dep['share_percent']}% of import value.")
+        # add sourcing insights if present
+        sourcing = entry.get("sourcing_insights", [])
+        insights.extend(sourcing)
 
         overview = {
             "total_export_value_usd_mn": self._sum(exports, "value_usd_mn"),

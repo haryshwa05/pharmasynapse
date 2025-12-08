@@ -1,9 +1,14 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 from app.api import routes, mock_data_routes
 from app.api import analysis_routes
 from app.api import internal_routes
 from app.api import report_routes
+
+# Load environment variables from .env if present
+load_dotenv()
 
 app = FastAPI(title="Pharma Agentic AI - Minimal Backend")
 
