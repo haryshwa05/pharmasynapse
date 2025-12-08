@@ -25,6 +25,23 @@
     "therapy_dynamics": [
       "Shift from monotherapy to fixed-dose combinations",
       "Increased use in prediabetes and insulin resistance"
+    ],
+    "sales_trends": [
+      {"year": 2020, "revenue_usd_mn": 760},
+      {"year": 2021, "revenue_usd_mn": 790},
+      {"year": 2022, "revenue_usd_mn": 820},
+      {"year": 2023, "revenue_usd_mn": 845},
+      {"year": 2024, "revenue_usd_mn": 850}
+    ],
+    "volume_shifts": [
+      {"channel": "Retail", "delta_percent": -2.0},
+      {"channel": "Hospital", "delta_percent": 3.5},
+      {"channel": "Mail Order", "delta_percent": 5.0}
+    ],
+    "therapy_competition": [
+      {"therapy_area": "T2D", "key_players": ["Teva", "Mylan", "Lupin"], "price_pressure": "High"},
+      {"therapy_area": "NAFLD (off-label)", "key_players": ["Smaller specialty"], "price_pressure": "Low"},
+      {"therapy_area": "Prediabetes", "key_players": ["Generic mix"], "price_pressure": "Medium"}
     ]
   },
 

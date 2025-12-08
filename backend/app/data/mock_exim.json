@@ -14,6 +14,11 @@
     "insights": [
       "India and China represent the bulk of metformin API export value.",
       "US remains the largest import destination; moderate diversification across LATAM and Africa."
+    ],
+    "sourcing_insights": [
+      "Dual-source from India and China to hedge supply risk.",
+      "Consider nearshoring for US demand to reduce lead times.",
+      "Monitor EU GMP changes impacting API certification."
     ]
   },
   "montelukast": {
@@ -31,6 +36,11 @@
     "insights": [
       "India and China dominate montelukast API exports; Israel provides niche volumes.",
       "US and EU imports suggest reliance on Asia for primary sourcing."
+    ],
+    "sourcing_insights": [
+      "Qualify Israel supplier as backup for pediatric formulations.",
+      "Germany demand growing; evaluate EU warehousing for responsiveness.",
+      "Price-sensitive LATAM imports: consider flexible contract terms."
     ]
   }
 }

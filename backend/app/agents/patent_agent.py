@@ -276,10 +276,15 @@ class PatentLandscapeAgent(WorkerBase):
             source="mock data"
         )
 
+        status_table = entry.get("status_table", [])
+        filing_heatmap = entry.get("filing_heatmap", {})
+
         return {
             "molecule": entry.get("molecule", molecule),
             "patents": patents,
             "overview": overview,
+            "status_table": status_table,
+            "filing_heatmap": filing_heatmap,
             "available": True,
             "summary": summary,
         }
