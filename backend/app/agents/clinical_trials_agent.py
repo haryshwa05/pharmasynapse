@@ -73,7 +73,9 @@ class ClinicalTrialsAgent(WorkerBase):
             "filtered_by_disease": disease,
             "trials": filtered_trials,
             "overview": overview,
-            "available": True
+            "available": True,
+            # enriched: sponsor profiles from mock data if present
+            "sponsor_profiles": entry.get("sponsor_profiles", []),
         }
         result["summary"] = self._build_summary(result)
         return result

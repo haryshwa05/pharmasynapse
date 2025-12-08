@@ -13,7 +13,8 @@
         "estimated_completion_date": "2026-06-30",
         "registry": "ClinicalTrials.gov",
         "locations": ["US", "Canada"],
-        "repurposing_flag": true
+        "repurposing_flag": true,
+        "arms": 3
       },
       {
         "trial_id": "NCT00022222",
@@ -26,7 +27,8 @@
         "estimated_completion_date": "2025-12-31",
         "registry": "ClinicalTrials.gov",
         "locations": ["EU", "US"],
-        "repurposing_flag": false
+        "repurposing_flag": false,
+        "arms": 2
       },
       {
         "trial_id": "NCT00033333",
@@ -39,8 +41,14 @@
         "estimated_completion_date": "2022-07-15",
         "registry": "WHO ICTRP",
         "locations": ["India"],
-        "repurposing_flag": false
+        "repurposing_flag": false,
+        "arms": 1
       }
+    ],
+    "sponsor_profiles": [
+      {"sponsor": "Academic Hospital A", "trials": 1, "focus": "NAFLD", "regions": ["US", "Canada"]},
+      {"sponsor": "BigPharma Inc.", "trials": 1, "focus": "Obesity/IR", "regions": ["EU", "US"]},
+      {"sponsor": "University B", "trials": 1, "focus": "Prediabetes", "regions": ["India"]}
     ]
   },
 
@@ -58,8 +66,12 @@
         "estimated_completion_date": "2025-01-31",
         "registry": "ClinicalTrials.gov",
         "locations": ["Germany"],
-        "repurposing_flag": true
+        "repurposing_flag": true,
+        "arms": 2
       }
+    ],
+    "sponsor_profiles": [
+      {"sponsor": "Dermato Pharma", "trials": 1, "focus": "Urticaria", "regions": ["Germany"]}
     ]
   }
 }

@@ -5,3 +5,5 @@ reportlab
 pydantic
 duckduckgo-search
 python-multipart
+python-dotenv
+openai

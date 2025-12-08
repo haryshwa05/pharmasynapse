@@ -24,7 +24,16 @@
         "focus": "New indication",
         "fto_risk": "low"
       }
-    ]
+    ],
+    "status_table": [
+      {"status": "active", "count": 1},
+      {"status": "expired", "count": 1},
+      {"status": "pending", "count": 0}
+    ],
+    "filing_heatmap": {
+      "US": {"2018": 1, "2019": 0, "2020": 1, "2021": 0},
+      "EU": {"2018": 0, "2019": 1, "2020": 0, "2021": 0}
+    }
   },
 
   "montelukast": {
@@ -41,6 +50,15 @@
         "focus": "Pediatric formulation",
         "fto_risk": "high"
       }
-    ]
+    ],
+    "status_table": [
+      {"status": "active", "count": 1},
+      {"status": "expired", "count": 0},
+      {"status": "pending", "count": 0}
+    ],
+    "filing_heatmap": {
+      "US": {"2019": 1, "2020": 0, "2021": 0},
+      "EU": {"2019": 0, "2020": 0, "2021": 0}
+    }
   }
 }

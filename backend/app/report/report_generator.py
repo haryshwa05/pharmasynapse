@@ -59,6 +59,34 @@ class ReportGenerator:
         self._draw_header(c, molecule)
         y -= 24
 
+        # Executive Summary (from Synthesis)
+        synthesis = analysis.get("synthesis", {})
+        if synthesis:
+            y = self._draw_section_title(c, "AI Executive Summary", y)
+            exec_sum = synthesis.get("executive_summary", "")
+            if exec_sum:
+                # Simple text wrap logic could go here; for now just print line
+                # Ideally reportlab Paragraph/Flowable is better, but keeping it simple:
+                c.setFont("Helvetica", 10)
+                # Split roughly
+                words = exec_sum.split()
+                line = ""
+                for w in words:
+                    if c.stringWidth(line + " " + w, "Helvetica", 10) < 450:
+                        line += " " + w
+                    else:
+                        c.drawString(60, y, line)
+                        y -= 12
+                        line = w
+                c.drawString(60, y, line)
+                y -= 20
+
+            # Recommendations
+            recs = synthesis.get("strategic_recommendations", [])
+            if recs:
+                y = self._draw_section_title(c, "Strategic Recommendations", y)
+                y = self._draw_bullets(c, recs, y)
+
         # Market (IQVIA)
         iq = analysis.get("iqvia", {}) or {}
         y = self._draw_section_title(c, "Market (IQVIA mock)", y)
