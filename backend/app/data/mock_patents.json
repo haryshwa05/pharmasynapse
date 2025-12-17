@@ -3,62 +3,315 @@
     "molecule": "Metformin",
     "patents": [
       {
-        "patent_number": "US1234567",
-        "title": "Extended-release metformin composition",
-        "assignee": "BigPharma Inc.",
+        "patent_number": "US-6000001",
+        "title": "Metformin formulation SR",
+        "assignee": "BMS",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2015-01-01",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-6102302",
+        "title": "Method of treating diabetes",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2018-05-12",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-8400100",
+        "title": "Metformin + Empagliflozin combo",
+        "assignee": "Boehringer",
         "jurisdiction": "US",
         "status": "active",
-        "expiry_date": "2030-05-12",
-        "family_id": "FAM001",
-        "focus": "ER formulation",
+        "expiry_date": "2029-08-20",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9200201",
+        "title": "Salts of Metformin",
+        "assignee": "Teva",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2027-03-15",
         "fto_risk": "medium"
       },
       {
-        "patent_number": "EP2345678",
-        "title": "Use of metformin in NAFLD",
-        "assignee": "UniTech",
-        "jurisdiction": "EU",
-        "status": "expired",
-        "expiry_date": "2021-09-30",
-        "family_id": "FAM002",
-        "focus": "New indication",
-        "fto_risk": "low"
-      }
-    ],
-    "status_table": [
-      {"status": "active", "count": 1},
-      {"status": "expired", "count": 1},
-      {"status": "pending", "count": 0}
-    ],
-    "filing_heatmap": {
-      "US": {"2018": 1, "2019": 0, "2020": 1, "2021": 0},
-      "EU": {"2018": 0, "2019": 1, "2020": 0, "2021": 0}
-    }
-  },
-
-  "montelukast": {
-    "molecule": "Montelukast",
-    "patents": [
-      {
-        "patent_number": "US7654321",
-        "title": "Montelukast formulation for pediatric asthma",
-        "assignee": "Respira Pharma",
+        "patent_number": "US-1020030",
+        "title": "Metformin delayed release",
+        "assignee": "Elcelyx",
         "jurisdiction": "US",
         "status": "active",
-        "expiry_date": "2028-11-01",
-        "family_id": "FAM010",
-        "focus": "Pediatric formulation",
+        "expiry_date": "2031-11-05",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-RE40000",
+        "title": "Liquid Metformin",
+        "assignee": "Generic Co",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "unknown"
+      },
+      {
+        "patent_number": "US-7800123",
+        "title": "Metformin HCL production",
+        "assignee": "Lupin",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2020-02-01",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-1105001",
+        "title": "Combo with Sitagliptin",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2026-12-12",
         "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9988776",
+        "title": "Nanoformulation of Metformin",
+        "assignee": "NanoPharma",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "unknown"
+      },
+      {
+        "patent_number": "US-8877221",
+        "title": "Transdermal Metformin",
+        "assignee": "Innovator X",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2030-06-30",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-5555555",
+        "title": "Original Composition",
+        "assignee": "Originator",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2000-01-01",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-6666666",
+        "title": "Method of synthesis",
+        "assignee": "Originator",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2005-01-01",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-7777777",
+        "title": "Extended release mechanism",
+        "assignee": "Depomed",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2021-10-10",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-1050011",
+        "title": "Metformin + Dapagliflozin",
+        "assignee": "AstraZeneca",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2030-01-15",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-1060022",
+        "title": "Metformin for Anti-aging",
+        "assignee": "Longevity Inc",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-1070033",
+        "title": "Metformin for Cancer Adjuvant",
+        "assignee": "OncoMet",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-1080044",
+        "title": "High Dose Formulation",
+        "assignee": "Generic Co Y",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2028-09-09",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-1090055",
+        "title": "Taste masked granules",
+        "assignee": "Pediatric Pharma",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2032-04-01",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-1100066",
+        "title": "Injectable Metformin ?",
+        "assignee": "Research Inst",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "unknown"
       }
     ],
-    "status_table": [
-      {"status": "active", "count": 1},
-      {"status": "expired", "count": 0},
-      {"status": "pending", "count": 0}
+    "filing_heatmap": {}
+  },
+  "keytruda": {
+    "molecule": "Keytruda",
+    "patents": [
+      {
+        "patent_number": "US-9000001",
+        "title": "Anti-PD-1 Antibody",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2028-06-01",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9100002",
+        "title": "Method of treating melanoma",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2036-05-15",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9200003",
+        "title": "Stable formulation",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2032-11-20",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9300004",
+        "title": "Combination with Chemo",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2034-02-10",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9400005",
+        "title": "Subcutaneous formulation",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "pending",
+        "expiry_date": null,
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9500006",
+        "title": "Biomarker selection",
+        "assignee": "Merck",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2030-08-01",
+        "fto_risk": "medium"
+      }
     ],
-    "filing_heatmap": {
-      "US": {"2019": 1, "2020": 0, "2021": 0},
-      "EU": {"2019": 0, "2020": 0, "2021": 0}
-    }
+    "filing_heatmap": {}
+  },
+  "humira": {
+    "molecule": "Humira",
+    "patents": [
+      {
+        "patent_number": "US-8000001",
+        "title": "Anti-TNF alpha",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "expired",
+        "expiry_date": "2016-12-31",
+        "fto_risk": "low"
+      },
+      {
+        "patent_number": "US-8500002",
+        "title": "Humira Formulation A",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2023-01-01",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-9000003",
+        "title": "Humira Method of Use RA",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2025-06-15",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-9500004",
+        "title": "High Concentration HC",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2034-02-01",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9600005",
+        "title": "Citrate-free buffer",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2031-10-10",
+        "fto_risk": "high"
+      },
+      {
+        "patent_number": "US-9700006",
+        "title": "Device for injection",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2030-05-05",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-9800007",
+        "title": "Manufacturing process X",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2028-12-31",
+        "fto_risk": "medium"
+      },
+      {
+        "patent_number": "US-9900008",
+        "title": "Manufacturing process Y",
+        "assignee": "AbbVie",
+        "jurisdiction": "US",
+        "status": "active",
+        "expiry_date": "2029-07-20",
+        "fto_risk": "medium"
+      }
+    ],
+    "filing_heatmap": {}
   }
 }

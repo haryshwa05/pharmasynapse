@@ -229,7 +229,23 @@ class MasterAgent:
         params = {"key": self.gemini_key}
 
         try:
-            response = requests.post(url, params=params, json=payload, timeout=60)
+            # Retry logic for 503
+            import time
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = requests.post(url, params=params, json=payload, timeout=60)
+                    if response.status_code == 200:
+                        break
+                    elif response.status_code == 503:
+                        print(f"[Gemini] 503 Overloaded (Attempt {attempt+1}). Retrying...")
+                        time.sleep(2 * (attempt + 1))
+                    else:
+                        break 
+                except requests.exceptions.RequestException as e:
+                    print(f"[Gemini] Network error (Attempt {attempt+1}): {e}")
+                    time.sleep(1)
+
             print("[Gemini] Status:", response.status_code)
 
             if response.status_code != 200:

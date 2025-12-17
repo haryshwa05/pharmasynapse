@@ -8,9 +8,18 @@
         "cagr_5y_percent": 3.2,
         "volume_trend": "stable",
         "competitors": [
-          {"company": "Teva", "share_percent": 18},
-          {"company": "Mylan", "share_percent": 15},
-          {"company": "Lupin", "share_percent": 10}
+          {
+            "company": "Teva",
+            "share_percent": 18
+          },
+          {
+            "company": "Mylan",
+            "share_percent": 15
+          },
+          {
+            "company": "Lupin",
+            "share_percent": 10
+          }
         ]
       },
       "EU5": {
@@ -18,7 +27,322 @@
         "cagr_5y_percent": 2.1,
         "volume_trend": "declining",
         "competitors": [
-          {"company": "Sandoz", "share_percent": 20}
+          {
+            "company": "Sandoz",
+            "share_percent": 20
+          }
+        ]
+      },
+      "Japan": {
+        "market_size_usd_mn": 310.2,
+        "cagr_5y_percent": 1.5,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Takeda",
+            "share_percent": 25
+          }
+        ]
+      },
+      "China": {
+        "market_size_usd_mn": 1200.5,
+        "cagr_5y_percent": 5.8,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "SinoPharm",
+            "share_percent": 30
+          }
+        ]
+      },
+      "India": {
+        "market_size_usd_mn": 550.0,
+        "cagr_5y_percent": 7.2,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Sun Pharma",
+            "share_percent": 22
+          },
+          {
+            "company": "Cipla",
+            "share_percent": 15
+          }
+        ]
+      },
+      "Brazil": {
+        "market_size_usd_mn": 210.0,
+        "cagr_5y_percent": 4.5,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "EMS",
+            "share_percent": 18
+          }
+        ]
+      },
+      "Canada": {
+        "market_size_usd_mn": 120.0,
+        "cagr_5y_percent": 2.0,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Apotex",
+            "share_percent": 35
+          }
+        ]
+      },
+      "Australia": {
+        "market_size_usd_mn": 95.0,
+        "cagr_5y_percent": 1.8,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Alphapharm",
+            "share_percent": 28
+          }
+        ]
+      },
+      "Germany": {
+        "market_size_usd_mn": 180.0,
+        "cagr_5y_percent": 2.2,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Ratiopharm",
+            "share_percent": 25
+          }
+        ]
+      },
+      "France": {
+        "market_size_usd_mn": 160.0,
+        "cagr_5y_percent": 1.9,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Sanofi",
+            "share_percent": 20
+          }
+        ]
+      },
+      "UK": {
+        "market_size_usd_mn": 140.0,
+        "cagr_5y_percent": 2.0,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Teva UK",
+            "share_percent": 20
+          }
+        ]
+      },
+      "Italy": {
+        "market_size_usd_mn": 130.0,
+        "cagr_5y_percent": 1.7,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Menarini",
+            "share_percent": 15
+          }
+        ]
+      },
+      "Spain": {
+        "market_size_usd_mn": 110.0,
+        "cagr_5y_percent": 2.3,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Cinfa",
+            "share_percent": 30
+          }
+        ]
+      },
+      "South Korea": {
+        "market_size_usd_mn": 90.0,
+        "cagr_5y_percent": 3.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Hanmi",
+            "share_percent": 18
+          }
+        ]
+      },
+      "Russia": {
+        "market_size_usd_mn": 150.0,
+        "cagr_5y_percent": 4.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Pharmstandard",
+            "share_percent": 20
+          }
+        ]
+      },
+      "Mexico": {
+        "market_size_usd_mn": 100.0,
+        "cagr_5y_percent": 3.8,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Genomma",
+            "share_percent": 12
+          }
+        ]
+      },
+      "Turkey": {
+        "market_size_usd_mn": 80.0,
+        "cagr_5y_percent": 5.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Abdi Ibrahim",
+            "share_percent": 25
+          }
+        ]
+      },
+      "Saudi Arabia": {
+        "market_size_usd_mn": 70.0,
+        "cagr_5y_percent": 4.2,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "SPIMACO",
+            "share_percent": 30
+          }
+        ]
+      },
+      "South Africa": {
+        "market_size_usd_mn": 50.0,
+        "cagr_5y_percent": 2.5,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Aspen",
+            "share_percent": 40
+          }
+        ]
+      },
+      "Argentina": {
+        "market_size_usd_mn": 60.0,
+        "cagr_5y_percent": 6.0,
+        "volume_trend": "volatile",
+        "competitors": [
+          {
+            "company": "Roemmers",
+            "share_percent": 18
+          }
+        ]
+      },
+      "Indonesia": {
+        "market_size_usd_mn": 110.0,
+        "cagr_5y_percent": 5.5,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Kalbe",
+            "share_percent": 22
+          }
+        ]
+      },
+      "Vietnam": {
+        "market_size_usd_mn": 75.0,
+        "cagr_5y_percent": 6.5,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "DHG",
+            "share_percent": 15
+          }
+        ]
+      },
+      "Thailand": {
+        "market_size_usd_mn": 65.0,
+        "cagr_5y_percent": 3.5,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "GPO",
+            "share_percent": 40
+          }
+        ]
+      },
+      "Philippines": {
+        "market_size_usd_mn": 55.0,
+        "cagr_5y_percent": 4.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Unilab",
+            "share_percent": 35
+          }
+        ]
+      },
+      "Malaysia": {
+        "market_size_usd_mn": 40.0,
+        "cagr_5y_percent": 3.2,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Pharmaniaga",
+            "share_percent": 20
+          }
+        ]
+      },
+      "Egypt": {
+        "market_size_usd_mn": 95.0,
+        "cagr_5y_percent": 5.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "EIPICO",
+            "share_percent": 15
+          }
+        ]
+      },
+      "Pakistan": {
+        "market_size_usd_mn": 85.0,
+        "cagr_5y_percent": 4.8,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Getz",
+            "share_percent": 18
+          }
+        ]
+      },
+      "Poland": {
+        "market_size_usd_mn": 90.0,
+        "cagr_5y_percent": 3.0,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Polpharma",
+            "share_percent": 28
+          }
+        ]
+      },
+      "Sweden": {
+        "market_size_usd_mn": 35.0,
+        "cagr_5y_percent": 1.2,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Meda",
+            "share_percent": 15
+          }
+        ]
+      },
+      "Switzerland": {
+        "market_size_usd_mn": 45.0,
+        "cagr_5y_percent": 1.0,
+        "volume_trend": "stable",
+        "competitors": [
+          {
+            "company": "Novartis",
+            "share_percent": 10
+          }
         ]
       }
     },
@@ -27,25 +351,141 @@
       "Increased use in prediabetes and insulin resistance"
     ],
     "sales_trends": [
-      {"year": 2020, "revenue_usd_mn": 760},
-      {"year": 2021, "revenue_usd_mn": 790},
-      {"year": 2022, "revenue_usd_mn": 820},
-      {"year": 2023, "revenue_usd_mn": 845},
-      {"year": 2024, "revenue_usd_mn": 850}
+      {
+        "year": 2020,
+        "revenue_usd_mn": 760
+      },
+      {
+        "year": 2021,
+        "revenue_usd_mn": 790
+      },
+      {
+        "year": 2022,
+        "revenue_usd_mn": 820
+      },
+      {
+        "year": 2023,
+        "revenue_usd_mn": 845
+      },
+      {
+        "year": 2024,
+        "revenue_usd_mn": 850
+      }
     ],
     "volume_shifts": [
-      {"channel": "Retail", "delta_percent": -2.0},
-      {"channel": "Hospital", "delta_percent": 3.5},
-      {"channel": "Mail Order", "delta_percent": 5.0}
+      {
+        "channel": "Retail",
+        "delta_percent": -2.0
+      },
+      {
+        "channel": "Hospital",
+        "delta_percent": 3.5
+      },
+      {
+        "channel": "Mail Order",
+        "delta_percent": 5.0
+      }
     ],
     "therapy_competition": [
-      {"therapy_area": "T2D", "key_players": ["Teva", "Mylan", "Lupin"], "price_pressure": "High"},
-      {"therapy_area": "NAFLD (off-label)", "key_players": ["Smaller specialty"], "price_pressure": "Low"},
-      {"therapy_area": "Prediabetes", "key_players": ["Generic mix"], "price_pressure": "Medium"}
+      {
+        "therapy_area": "T2D",
+        "key_players": [
+          "Teva",
+          "Mylan",
+          "Lupin"
+        ],
+        "price_pressure": "High"
+      },
+      {
+        "therapy_area": "NAFLD (off-label)",
+        "key_players": [
+          "Smaller specialty"
+        ],
+        "price_pressure": "Low"
+      },
+      {
+        "therapy_area": "Prediabetes",
+        "key_players": [
+          "Generic mix"
+        ],
+        "price_pressure": "Medium"
+      }
     ]
   },
-
-  "montelukast": {
-    "...": "..."
+  "keytruda": {
+    "molecule": "Keytruda",
+    "atc_class": "L01XC18",
+    "regions": {
+      "US": {
+        "market_size_usd_mn": 12000.0,
+        "cagr_5y_percent": 8.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "BMS",
+            "share_percent": 40
+          }
+        ]
+      },
+      "EU5": {
+        "market_size_usd_mn": 5000.0,
+        "cagr_5y_percent": 7.5,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Roche",
+            "share_percent": 30
+          }
+        ]
+      },
+      "Japan": {
+        "market_size_usd_mn": 2000.0,
+        "cagr_5y_percent": 6.0,
+        "volume_trend": "growing",
+        "competitors": [
+          {
+            "company": "Ono",
+            "share_percent": 25
+          }
+        ]
+      },
+      "China": {
+        "market_size_usd_mn": 1500.0,
+        "cagr_5y_percent": 12.0,
+        "volume_trend": "rapid growth",
+        "competitors": [
+          {
+            "company": "BeiGene",
+            "share_percent": 20
+          }
+        ]
+      }
+    },
+    "therapy_dynamics": [
+      "Expansion into earlier lines of therapy",
+      "New indications in adjuvant settings"
+    ],
+    "sales_trends": [],
+    "volume_shifts": [],
+    "therapy_competition": []
+  },
+  "humira": {
+    "molecule": "Humira",
+    "atc_class": "L04AB04",
+    "regions": {
+      "Global": {
+        "market_size_usd_mn": 21000.0,
+        "cagr_5y_percent": -5.0,
+        "volume_trend": "declining",
+        "competitors": []
+      }
+    },
+    "therapy_dynamics": [
+      "Biosimilar erosion accelerating",
+      "Formulation changes to high-concentration"
+    ],
+    "sales_trends": [],
+    "volume_shifts": [],
+    "therapy_competition": []
   }
 }
