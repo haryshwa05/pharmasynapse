@@ -1,173 +1,204 @@
 # PharmaSynapse 🧬
 
-**PharmaSynapse** is an **agentic AI system for pharmaceutical intelligence and decision support**, designed to evaluate molecules end-to-end — from scientific rationale and regulatory feasibility to patents, market demand, and global trade signals.
+PharmaSynapse is a **full‑stack, agentic AI system for pharmaceutical intelligence and strategic decision‑making**. It is designed to evaluate molecules, therapeutic ideas, and pharma questions end‑to‑end by orchestrating multiple specialized AI agents across **regulatory, clinical, patent, market, trade, and scientific domains**.
 
-It is built as a **modular, production-oriented platform**, not a demo or chatbot, and is intended to support real-world use cases such as **drug repurposing, value-added generics, portfolio evaluation, and market-entry strategy**.
-
----
-
-## 📌 Why PharmaSynapse Exists
-
-Modern pharma decisions suffer from three core problems:
-
-* Critical data is **fragmented** across regulatory sites, clinical trial registries, patents, market reports, and trade data
-* Analysis is **manual, slow, and expert-dependent**
-* Outputs are often **descriptive**, not decision-oriented
-
-PharmaSynapse addresses this by using **agentic AI** to autonomously gather, reason over, and synthesize multi-source intelligence into **clear, defensible recommendations**.
+This repository contains the **entire working system** — backend intelligence engine, agent orchestration layer, reporting pipeline, and frontend interface — built as a cohesive platform rather than a prototype or demo.
 
 ---
 
-## 🧠 System Overview
+## 1. What PharmaSynapse Does
 
-PharmaSynapse follows a **Master–Worker Agent architecture**.
+PharmaSynapse answers complex pharma questions such as:
 
-A central **Master Orchestrator** decomposes a molecule-level question into specialized sub-tasks and coordinates multiple **domain-focused AI agents**. Each agent operates independently, produces structured outputs, and exposes its reasoning and confidence.
+* Is a molecule suitable for **repurposing** into a new indication?
+* What are the **regulatory and IP constraints** across regions?
+* Does **clinical and scientific evidence** support further development?
+* Is there a **real market and trade demand** for the product?
 
-The final system output is not raw text, but:
-
-* Structured analytical summaries
-* Risk and opportunity signals
-* Decision-ready recommendations
-* Executive-grade reports and presentations
+Instead of returning raw search results or generic summaries, PharmaSynapse produces **structured, explainable, decision‑oriented outputs**.
 
 ---
 
-## 🧩 Agent Architecture
+## 2. System Philosophy
 
-### Master Orchestrator Agent
+PharmaSynapse is built on a few core principles:
 
-Responsible for:
-
-* Task planning and decomposition
-* Routing queries to appropriate worker agents
-* Parallel execution and result aggregation
-* Cross-agent consistency checks
-* Final synthesis and scoring
-
-The Master Agent ensures the system behaves like a **coherent analyst**, not a collection of tools.
+* **Agentic reasoning over monolithic LLM calls**
+* **Domain separation** (each agent owns one expertise)
+* **Parallel intelligence gathering** for speed
+* **Explainability and traceability** of conclusions
+* **Production‑oriented architecture**, not prompt demos
 
 ---
+
+## 3. High‑Level Architecture
+
+The system follows a **Master–Worker Agent architecture**.
+
+### Master Agent
+
+The Master Agent acts as the system orchestrator. It:
+
+* Interprets the user’s query or molecule input
+* Decomposes it into domain‑specific analytical tasks
+* Executes multiple worker agents in parallel
+* Aggregates, validates, and synthesizes outputs
+* Produces a final unified analysis and recommendation
 
 ### Worker Agents
 
-Each Worker Agent is **single-responsibility, independently testable, and replaceable**.
+Each Worker Agent is:
 
-| Agent                         | Core Responsibility                                                         |
-| ----------------------------- | --------------------------------------------------------------------------- |
-| Regulatory Intelligence Agent | Approval pathways, constraints, regional feasibility (FDA, EMA, CDSCO, WHO) |
-| Clinical Evidence Agent       | Trial phases, indications, outcomes, repurposing signals                    |
-| Patent & IP Agent             | Patent status, expiry windows, freedom-to-operate assessment                |
-| Market Intelligence Agent     | Demand signals, competition, pricing and positioning logic                  |
-| EXIM Trade Intelligence Agent | Import/export trends to infer supply–demand gaps                            |
-| Scientific Literature Agent   | Mechanism of action, off-label signals, research consensus                  |
-| Web Intelligence Agent        | Guidelines, news, policy updates, industry signals                          |
+* Single‑responsibility
+* Independently testable
+* Loosely coupled
+* Structured‑output driven
 
 ---
 
-## 🔁 End-to-End Workflow
+## 4. Backend Architecture (FastAPI)
 
-1. **Molecule or compound is provided as input**
-2. Master Agent decomposes the evaluation into domain tasks
-3. Worker Agents execute in parallel
-4. Each agent returns structured insights with confidence scores
-5. Master Agent synthesizes findings into unified intelligence
-6. Final outputs are generated:
+The backend is a **FastAPI‑based intelligence service**.
 
-   * Analytical report
-   * Executive summary
-   * 5-slide strategic presentation
+### Entry Point
+
+**`backend/app/main.py`**
+
+* Initializes the FastAPI application
+* Configures CORS for frontend communication
+* Registers all API routes
+
+### API Layer
+
+Located in **`backend/app/api/`**
+
+* `analysis_routes.py` – molecule and strategy analysis endpoints
+* `prompt_routes.py` – flexible natural‑language strategic prompts
+* `report_routes.py` – structured report & document generation
+
+These APIs expose the agentic system as a clean service layer.
 
 ---
 
-## 🏗️ Technical Architecture
+## 5. Agent Layer (Core Intelligence)
 
-### Backend
+Located in **`backend/app/agents/`**
 
-* **Python 3.11+**
-* **FastAPI** for service orchestration
-* Custom agent framework (LangChain-compatible)
-* Async execution for concurrent agents
+### Master Agent
 
-### AI / Reasoning Layer
+**`master_agent.py`**
 
-* Configurable LLM backend (OpenAI / open-weight models)
-* Tool-calling with structured JSON outputs
-* Explicit reasoning traces per agent
+* Central coordination engine
+* Uses parallel execution (`ThreadPoolExecutor`) to run agents concurrently
+* Normalizes and scores agent outputs
+* Produces final structured intelligence
 
-### Data & Intelligence Sources
+### Key Worker Agents
 
-* Regulatory portals
-* Clinical trial registries
-* Patent databases
-* Scientific literature
-* Trade (EXIM) datasets
-* Open web intelligence
+| Agent                  | Responsibility                                       |
+| ---------------------- | ---------------------------------------------------- |
+| Regulatory Agent       | Approval pathways, constraints, regional feasibility |
+| Clinical Trials Agent  | Trial phases, outcomes, repurposing signals          |
+| Patent Agent           | IP status, expiry windows, freedom‑to‑operate        |
+| Market Agent           | Demand logic, competition, pricing signals           |
+| EXIM Trade Agent       | Import/export data to infer supply–demand gaps       |
+| Literature Agent       | Mechanism of action, scientific consensus            |
+| Web Intelligence Agent | News, guidelines, policy signals                     |
 
-### Frontend
+Each agent returns **structured JSON outputs** instead of free‑text.
 
-* **React / Next.js**
+---
+
+## 6. Parallel Intelligence Execution
+
+A core design choice is **parallel execution**.
+
+* Agents run simultaneously to reduce latency
+* Each agent operates independently
+* Failures are isolated and handled gracefully
+
+This mirrors how a real pharma strategy team works — multiple experts in parallel, one final synthesis.
+
+---
+
+## 7. Reporting & Output Generation
+
+PharmaSynapse does not stop at analysis.
+
+### Outputs Include:
+
+* Consolidated analytical summaries
+* Risk and opportunity scoring
+* Clear go / no‑go signals
+* Executive‑level narrative
+
+### Formats:
+
+* JSON (machine‑readable)
+* Markdown / text reports
+* Auto‑generated PDF / presentation documents
+
+Report generation is handled via a dedicated **Report Agent** pipeline.
+
+---
+
+## 8. Frontend Architecture (Next.js)
+
+The frontend provides a **clean analytical interface** for interacting with the system.
+
+Located in **`frontend/`**:
+
+* React + Next.js
 * Tailwind CSS
-* Dashboard-style UI for reports and insights
+* Modular components for analysis views and reports
+
+The frontend consumes backend APIs and renders:
+
+* Analysis results
+* Structured insights
+* Generated reports
 
 ---
 
-## 📂 Repository Structure
+## 9. Repository Structure
 
 ```
 PharmaSynapse/
 ├── backend/
-│   ├── agents/
-│   │   ├── master_agent.py
-│   │   ├── regulatory_agent.py
-│   │   ├── clinical_agent.py
-│   │   ├── patent_agent.py
-│   │   ├── market_agent.py
-│   │   └── exim_trade_agent.py
-│   ├── services/
-│   ├── utils/
-│   ├── api.py
-│   └── main.py
-│
+│   └── app/
+│       ├── api/
+│       ├── agents/
+│       ├── services/
+│       ├── utils/
+│       └── main.py
 ├── frontend/
 │   ├── components/
 │   ├── pages/
 │   └── styles/
-│
 ├── data/
-│   ├── exim/
-│   ├── sample_outputs/
-│
+│   └── exim/
 ├── docs/
-│   ├── architecture.md
-│   ├── prompts.md
-│
+│   └── prompts.md
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 📊 System Outputs
+## 10. End‑to‑End Flow
 
-PharmaSynapse produces **structured, explainable outputs**, including:
-
-* Regulatory risk level
-* Clinical evidence strength
-* Patent freedom window
-* Market attractiveness score
-* Trade-based demand indicators
-* Overall feasibility and recommendation
-
-Outputs are available as:
-
-* JSON (machine-readable)
-* Markdown / PDF reports
-* Auto-generated presentation slides
+1. User submits a molecule or strategic query
+2. Backend API receives the request
+3. Master Agent decomposes the task
+4. Worker Agents execute in parallel
+5. Outputs are normalized and validated
+6. Final synthesis is generated
+7. Report and presentation artifacts are produced
+8. Frontend displays results
 
 ---
 
-## ⚙️ Installation & Setup
+## 11. Installation & Running
 
 ```bash
 git clone https://github.com/your-username/PharmaSynapse.git
@@ -178,8 +209,7 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
 pip install -r requirements.txt
-
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 ```bash
@@ -191,34 +221,31 @@ npm run dev
 
 ---
 
-## 🧠 Design Principles
+## 12. Why This System Is Different
 
-* **Agentic, not monolithic**
-* **Explainability over black-box outputs**
-* **Domain separation of concerns**
-* **Decision-first intelligence**
-* **Production-oriented architecture**
+* Not a single‑prompt chatbot
+* Not hard‑coded rules
+* Not static research summaries
 
----
-
-## 🛣️ Future Extensions
-
-* Internal document RAG
-* Portfolio-level molecule comparison
-* Feedback-driven agent learning
-* Visualization dashboards
-* Enterprise authentication and audit logs
+PharmaSynapse behaves like a **distributed intelligence system**, combining reasoning, data gathering, validation, and synthesis into one coherent workflow.
 
 ---
 
-## 📜 License
+## 13. Extensibility
 
-MIT License
+The system is intentionally modular:
+
+* New agents can be added without refactoring
+* Data sources can be swapped or upgraded
+* LLM backends are configurable
 
 ---
 
-## 👤 Author
+## 14. Authors
 
-**Haryshwa Ganesh**
+**Haryshwa Ganesh & Indresh**
 
-PharmaSynapse is designed as a **foundational system for AI-driven pharmaceutical intelligence**, extensible across organizations, regions, and therapeutic areas.
+PharmaSynapse represents an effort to treat AI systems as **thinking infrastructure**, not just interfaces — applying agentic design to real pharmaceutical decision problems.
+
+---
+
