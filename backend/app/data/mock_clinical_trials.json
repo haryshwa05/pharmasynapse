@@ -3,75 +3,486 @@
     "molecule": "Metformin",
     "trials": [
       {
-        "trial_id": "NCT00011111",
-        "title": "Metformin for treatment of NAFLD in adults",
+        "trial_id": "NCT001",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Type 2 Diabetes",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT002",
+        "phase": "Phase 4",
+        "status": "Recruiting",
+        "condition": "NAFLD",
+        "sponsor": "University of Sydney",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT003",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "PCOS",
+        "sponsor": "Generic Co",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT004",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Pfizer",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT005",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "Obesity",
+        "sponsor": "Academic",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT006",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT007",
+        "phase": "Phase 4",
+        "status": "Recruiting",
+        "condition": "Diabetes",
+        "sponsor": "NHS",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT008",
+        "phase": "Phase 1",
+        "status": "Completed",
+        "condition": "Aging",
+        "sponsor": "NIH",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT009",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "Cancer",
+        "sponsor": "NCI",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT010",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "Diabetes Prevention",
+        "sponsor": "NIDDK",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT011",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "COVID-19",
+        "sponsor": "University of Minnesota",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT012",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Sanofi",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT013",
+        "phase": "Phase 4",
+        "status": "Active, not recruiting",
+        "condition": "Diabetes",
+        "sponsor": "Novo Nordisk",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT014",
         "phase": "Phase 2",
         "status": "Recruiting",
-        "condition": "Non-alcoholic fatty liver disease",
-        "sponsor": "Academic Hospital A",
-        "start_date": "2023-01-15",
-        "estimated_completion_date": "2026-06-30",
-        "registry": "ClinicalTrials.gov",
-        "locations": ["US", "Canada"],
-        "repurposing_flag": true,
-        "arms": 3
+        "condition": "Liver Disease",
+        "sponsor": "Intercept",
+        "repurposing_flag": true
       },
       {
-        "trial_id": "NCT00022222",
-        "title": "Metformin add-on therapy in insulin-resistant obesity",
+        "trial_id": "NCT015",
         "phase": "Phase 3",
-        "status": "Active, not recruiting",
-        "condition": "Obesity with insulin resistance",
-        "sponsor": "BigPharma Inc.",
-        "start_date": "2021-05-01",
-        "estimated_completion_date": "2025-12-31",
-        "registry": "ClinicalTrials.gov",
-        "locations": ["EU", "US"],
-        "repurposing_flag": false,
-        "arms": 2
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Lilly",
+        "repurposing_flag": false
       },
       {
-        "trial_id": "NCT00033333",
-        "title": "Low-dose metformin in prediabetes",
+        "trial_id": "NCT016",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "Breast Cancer",
+        "sponsor": "Mayo Clinic",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT017",
+        "phase": "Phase 1",
+        "status": "Recruiting",
+        "condition": "Healthy Volunteers",
+        "sponsor": "CRO",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT018",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT019",
+        "phase": "Phase 2",
+        "status": "Terminated",
+        "condition": "Alzheimers",
+        "sponsor": "Biogen",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT020",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "Diabetes",
+        "sponsor": "AstraZeneca",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT021",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "NAFLD",
+        "sponsor": "Pfizer",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT022",
         "phase": "Phase 4",
         "status": "Completed",
-        "condition": "Prediabetes",
-        "sponsor": "University B",
-        "start_date": "2018-03-10",
-        "estimated_completion_date": "2022-07-15",
-        "registry": "WHO ICTRP",
-        "locations": ["India"],
-        "repurposing_flag": false,
-        "arms": 1
-      }
-    ],
-    "sponsor_profiles": [
-      {"sponsor": "Academic Hospital A", "trials": 1, "focus": "NAFLD", "regions": ["US", "Canada"]},
-      {"sponsor": "BigPharma Inc.", "trials": 1, "focus": "Obesity/IR", "regions": ["EU", "US"]},
-      {"sponsor": "University B", "trials": 1, "focus": "Prediabetes", "regions": ["India"]}
-    ]
-  },
-
-  "montelukast": {
-    "molecule": "Montelukast",
-    "trials": [
+        "condition": "Diabetes",
+        "sponsor": "Takeda",
+        "repurposing_flag": false
+      },
       {
-        "trial_id": "NCT11112222",
-        "title": "Montelukast for chronic urticaria",
+        "trial_id": "NCT023",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Boehringer",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT024",
         "phase": "Phase 2",
         "status": "Recruiting",
-        "condition": "Chronic spontaneous urticaria",
-        "sponsor": "Dermato Pharma",
-        "start_date": "2022-09-01",
-        "estimated_completion_date": "2025-01-31",
-        "registry": "ClinicalTrials.gov",
-        "locations": ["Germany"],
-        "repurposing_flag": true,
-        "arms": 2
+        "condition": "Lung Cancer",
+        "sponsor": "MSKCC",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT025",
+        "phase": "Phase 1",
+        "status": "Completed",
+        "condition": "PK Study",
+        "sponsor": "Teva",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT026",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Lupin",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT027",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "Tuberculosis",
+        "sponsor": "Gates Foundation",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT028",
+        "phase": "Phase 4",
+        "status": "Recruiting",
+        "condition": "Pre-diabetes",
+        "sponsor": "CDC",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT029",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Diabetes",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT030",
+        "phase": "Phase 2",
+        "status": "Recruiting",
+        "condition": "Aging",
+        "sponsor": "AFAR",
+        "repurposing_flag": true
       }
     ],
     "sponsor_profiles": [
-      {"sponsor": "Dermato Pharma", "trials": 1, "focus": "Urticaria", "regions": ["Germany"]}
+      {
+        "sponsor": "Merck",
+        "trials": 4,
+        "focus": "Core Label"
+      },
+      {
+        "sponsor": "Academia",
+        "trials": 12,
+        "focus": "Repurposing"
+      }
+    ]
+  },
+  "keytruda": {
+    "molecule": "Keytruda",
+    "trials": [
+      {
+        "trial_id": "NCT101",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "NSCLC",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT102",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Melanoma",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT103",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "Bladder Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT104",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "TNBC",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT105",
+        "phase": "Phase 1",
+        "status": "Recruiting",
+        "condition": "Solid Tumors",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT106",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "Lymphoma",
+        "sponsor": "Academic",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT107",
+        "phase": "Phase 3",
+        "status": "Active, not recruiting",
+        "condition": "Renal Cell Carcinoma",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT108",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Head and Neck Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT109",
+        "phase": "Phase 2",
+        "status": "Recruiting",
+        "condition": "Gastric Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT110",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "Cervical Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT111",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Esophageal Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT112",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting",
+        "condition": "HCC",
+        "sponsor": "Academic",
+        "repurposing_flag": true
+      },
+      {
+        "trial_id": "NCT113",
+        "phase": "Phase 3",
+        "status": "Recruiting",
+        "condition": "MSI-H Cancers",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT114",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "Merkel Cell",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT115",
+        "phase": "Phase 3",
+        "status": "Active, not recruiting",
+        "condition": "Endometrial Cancer",
+        "sponsor": "Merck",
+        "repurposing_flag": false
+      }
+    ],
+    "sponsor_profiles": [
+      {
+        "sponsor": "Merck",
+        "trials": 12,
+        "focus": "Label Expansion"
+      },
+      {
+        "sponsor": "NCI",
+        "trials": 5,
+        "focus": "Novel Combinations"
+      }
+    ]
+  },
+  "humira": {
+    "molecule": "Humira",
+    "trials": [
+      {
+        "trial_id": "NCT201",
+        "phase": "Phase 4",
+        "status": "Completed",
+        "condition": "Rheumatoid Arthritis",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT202",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Psoriasis",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT203",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Crohns Disease",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT204",
+        "phase": "Phase 2",
+        "status": "Completed",
+        "condition": "Ulcerative Colitis",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT205",
+        "phase": "Phase 4",
+        "status": "Recruiting",
+        "condition": "Hidradenitis Suppurativa",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT206",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Uveitis",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT207",
+        "phase": "Phase 3",
+        "status": "Terminated",
+        "condition": "Ankylosing Spondylitis",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT208",
+        "phase": "Phase 1",
+        "status": "Completed",
+        "condition": "JIA",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT209",
+        "phase": "Phase 3",
+        "status": "Active, not recruiting",
+        "condition": "PsA",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      },
+      {
+        "trial_id": "NCT210",
+        "phase": "Phase 3",
+        "status": "Completed",
+        "condition": "Pediatric Crohns",
+        "sponsor": "AbbVie",
+        "repurposing_flag": false
+      }
+    ],
+    "sponsor_profiles": [
+      {
+        "sponsor": "AbbVie",
+        "trials": 10,
+        "focus": "Lifecycle Management"
+      }
     ]
   }
 }

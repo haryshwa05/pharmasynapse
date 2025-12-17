@@ -2,46 +2,299 @@
   "metformin": {
     "molecule": "Metformin",
     "exports": [
-      {"country": "India", "year": 2024, "volume_tons": 1200, "value_usd_mn": 45.0},
-      {"country": "China", "year": 2024, "volume_tons": 950, "value_usd_mn": 32.5},
-      {"country": "EU", "year": 2024, "volume_tons": 260, "value_usd_mn": 12.0}
+      {
+        "country": "India",
+        "year": 2024,
+        "volume_tons": 12000,
+        "value_usd_mn": 45.0
+      },
+      {
+        "country": "China",
+        "year": 2024,
+        "volume_tons": 15000,
+        "value_usd_mn": 50.0
+      },
+      {
+        "country": "Germany",
+        "year": 2024,
+        "volume_tons": 3000,
+        "value_usd_mn": 15.0
+      },
+      {
+        "country": "USA",
+        "year": 2024,
+        "volume_tons": 1000,
+        "value_usd_mn": 5.0
+      },
+      {
+        "country": "India",
+        "year": 2023,
+        "volume_tons": 11500,
+        "value_usd_mn": 42.0
+      },
+      {
+        "country": "China",
+        "year": 2023,
+        "volume_tons": 14000,
+        "value_usd_mn": 48.0
+      },
+      {
+        "country": "Germany",
+        "year": 2023,
+        "volume_tons": 2800,
+        "value_usd_mn": 14.0
+      },
+      {
+        "country": "Brazil",
+        "year": 2024,
+        "volume_tons": 500,
+        "value_usd_mn": 2.0
+      },
+      {
+        "country": "France",
+        "year": 2024,
+        "volume_tons": 400,
+        "value_usd_mn": 2.5
+      },
+      {
+        "country": "Italy",
+        "year": 2024,
+        "volume_tons": 600,
+        "value_usd_mn": 3.0
+      },
+      {
+        "country": "Spain",
+        "year": 2024,
+        "volume_tons": 300,
+        "value_usd_mn": 1.5
+      },
+      {
+        "country": "UK",
+        "year": 2024,
+        "volume_tons": 450,
+        "value_usd_mn": 2.2
+      },
+      {
+        "country": "Japan",
+        "year": 2024,
+        "volume_tons": 200,
+        "value_usd_mn": 1.8
+      },
+      {
+        "country": "Canada",
+        "year": 2024,
+        "volume_tons": 150,
+        "value_usd_mn": 0.8
+      },
+      {
+        "country": "Australia",
+        "year": 2024,
+        "volume_tons": 100,
+        "value_usd_mn": 0.6
+      }
     ],
     "imports": [
-      {"country": "US", "year": 2024, "volume_tons": 520, "value_usd_mn": 18.5},
-      {"country": "Brazil", "year": 2024, "volume_tons": 190, "value_usd_mn": 6.8},
-      {"country": "South Africa", "year": 2024, "volume_tons": 120, "value_usd_mn": 4.2}
+      {
+        "country": "USA",
+        "year": 2024,
+        "volume_tons": 8000,
+        "value_usd_mn": 35.0
+      },
+      {
+        "country": "Germany",
+        "year": 2024,
+        "volume_tons": 4000,
+        "value_usd_mn": 20.0
+      },
+      {
+        "country": "Japan",
+        "year": 2024,
+        "volume_tons": 2000,
+        "value_usd_mn": 12.0
+      },
+      {
+        "country": "Brazil",
+        "year": 2024,
+        "volume_tons": 3000,
+        "value_usd_mn": 10.0
+      },
+      {
+        "country": "France",
+        "year": 2024,
+        "volume_tons": 1500,
+        "value_usd_mn": 8.0
+      },
+      {
+        "country": "Italy",
+        "year": 2024,
+        "volume_tons": 1200,
+        "value_usd_mn": 6.0
+      },
+      {
+        "country": "UK",
+        "year": 2024,
+        "volume_tons": 1800,
+        "value_usd_mn": 9.0
+      },
+      {
+        "country": "Canada",
+        "year": 2024,
+        "volume_tons": 1000,
+        "value_usd_mn": 5.0
+      },
+      {
+        "country": "Australia",
+        "year": 2024,
+        "volume_tons": 800,
+        "value_usd_mn": 4.0
+      },
+      {
+        "country": "China",
+        "year": 2024,
+        "volume_tons": 500,
+        "value_usd_mn": 2.0
+      },
+      {
+        "country": "India",
+        "year": 2024,
+        "volume_tons": 200,
+        "value_usd_mn": 0.5
+      },
+      {
+        "country": "Mexico",
+        "year": 2024,
+        "volume_tons": 600,
+        "value_usd_mn": 2.5
+      },
+      {
+        "country": "Russia",
+        "year": 2024,
+        "volume_tons": 1000,
+        "value_usd_mn": 3.0
+      },
+      {
+        "country": "Turkey",
+        "year": 2024,
+        "volume_tons": 400,
+        "value_usd_mn": 1.5
+      },
+      {
+        "country": "South Korea",
+        "year": 2024,
+        "volume_tons": 500,
+        "value_usd_mn": 2.2
+      }
     ],
     "insights": [
-      "India and China represent the bulk of metformin API export value.",
-      "US remains the largest import destination; moderate diversification across LATAM and Africa."
+      "India and China dominate export volumes (>70% global share).",
+      "US is the largest importer by value despite lower volumes vs ROW.",
+      "Supply chain remains stable with minor price fluctuations."
     ],
     "sourcing_insights": [
-      "Dual-source from India and China to hedge supply risk.",
-      "Consider nearshoring for US demand to reduce lead times.",
-      "Monitor EU GMP changes impacting API certification."
+      "Consider diversifying API sourcing beyond China/India to mitigate geopolitical risk.",
+      "Prices from India are 15% lower than China average."
     ]
   },
-  "montelukast": {
-    "molecule": "Montelukast",
+  "keytruda": {
+    "molecule": "Keytruda",
     "exports": [
-      {"country": "India", "year": 2024, "volume_tons": 310, "value_usd_mn": 14.0},
-      {"country": "China", "year": 2024, "volume_tons": 240, "value_usd_mn": 10.5},
-      {"country": "Israel", "year": 2024, "volume_tons": 80, "value_usd_mn": 4.4}
+      {
+        "country": "Ireland",
+        "year": 2024,
+        "volume_tons": 5,
+        "value_usd_mn": 8000.0
+      },
+      {
+        "country": "USA",
+        "year": 2024,
+        "volume_tons": 2,
+        "value_usd_mn": 4000.0
+      },
+      {
+        "country": "Netherlands",
+        "year": 2024,
+        "volume_tons": 1,
+        "value_usd_mn": 2000.0
+      },
+      {
+        "country": "Germany",
+        "year": 2024,
+        "volume_tons": 0.5,
+        "value_usd_mn": 1000.0
+      }
     ],
     "imports": [
-      {"country": "US", "year": 2024, "volume_tons": 140, "value_usd_mn": 6.3},
-      {"country": "Germany", "year": 2024, "volume_tons": 95, "value_usd_mn": 4.7},
-      {"country": "Mexico", "year": 2024, "volume_tons": 60, "value_usd_mn": 2.5}
+      {
+        "country": "USA",
+        "year": 2024,
+        "volume_tons": 3,
+        "value_usd_mn": 6000.0
+      },
+      {
+        "country": "China",
+        "year": 2024,
+        "volume_tons": 1,
+        "value_usd_mn": 1500.0
+      },
+      {
+        "country": "Japan",
+        "year": 2024,
+        "volume_tons": 0.8,
+        "value_usd_mn": 1200.0
+      },
+      {
+        "country": "France",
+        "year": 2024,
+        "volume_tons": 0.6,
+        "value_usd_mn": 900.0
+      }
     ],
     "insights": [
-      "India and China dominate montelukast API exports; Israel provides niche volumes.",
-      "US and EU imports suggest reliance on Asia for primary sourcing."
+      "Key manufacturing hubs in Ireland and USA drive exports.",
+      "High value-to-volume ratio characteristic of biologics."
     ],
-    "sourcing_insights": [
-      "Qualify Israel supplier as backup for pediatric formulations.",
-      "Germany demand growing; evaluate EU warehousing for responsiveness.",
-      "Price-sensitive LATAM imports: consider flexible contract terms."
-    ]
+    "sourcing_insights": []
+  },
+  "humira": {
+    "molecule": "Humira",
+    "exports": [
+      {
+        "country": "USA",
+        "year": 2024,
+        "volume_tons": 8,
+        "value_usd_mn": 12000.0
+      },
+      {
+        "country": "Germany",
+        "year": 2024,
+        "volume_tons": 4,
+        "value_usd_mn": 5000.0
+      },
+      {
+        "country": "Puerto Rico",
+        "year": 2024,
+        "volume_tons": 3,
+        "value_usd_mn": 4000.0
+      }
+    ],
+    "imports": [
+      {
+        "country": "EU5",
+        "year": 2024,
+        "volume_tons": 5,
+        "value_usd_mn": 6000.0
+      },
+      {
+        "country": "Japan",
+        "year": 2024,
+        "volume_tons": 1,
+        "value_usd_mn": 1500.0
+      }
+    ],
+    "insights": [
+      "Biosimilar competition reducing export value from primary hubs.",
+      "Volume remains high but value eroding."
+    ],
+    "sourcing_insights": []
   }
 }
-
