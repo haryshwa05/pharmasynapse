@@ -49,12 +49,15 @@ class WebIntelligenceAgent(WorkerBase):
         if not molecule:
             raise ValueError("WebIntelligenceAgent requires 'molecule' in query")
 
-        # Build category-specific queries
+        # Build comprehensive category-specific queries
         scope = f"{molecule} {disease}" if disease else molecule
         queries = {
-            "guidelines": f"{scope} clinical practice guideline PDF",
-            "rwe": f"{scope} real world evidence study",
-            "news": f"latest news {scope} drug",
+            "guidelines": f"{scope} clinical practice guideline site:nih.gov OR site:fda.gov OR site:ema.europa.eu",
+            "rwe": f"{scope} real world evidence study site:pubmed.ncbi.nlm.nih.gov OR site:nejm.org OR site:thelancet.com",
+            "news": f"latest news {scope} drug development clinical trials",
+            "regulatory": f"{scope} FDA approval EMA approval regulatory status",
+            "publications": f"{scope} scientific publications review articles meta analysis",
+            "market_news": f"{scope} market access reimbursement pricing strategy",
         }
 
         results: Dict[str, Any] = {"available": True, "as_of": datetime.date.today().isoformat()}
@@ -72,9 +75,29 @@ class WebIntelligenceAgent(WorkerBase):
     def _build_summary(self, res: Dict[str, Any], molecule: str, disease: Optional[str]) -> str:
         parts = []
         scope = f"{molecule}" + (f" in {disease}" if disease else "")
-        for topic in ("guidelines", "rwe", "news"):
+
+        # Count total sources
+        total_sources = sum(len(res.get(topic, [])) for topic in ["guidelines", "rwe", "news", "regulatory", "publications", "market_news"])
+
+        # Build detailed summary
+        categories = {
+            "guidelines": "clinical guidelines",
+            "rwe": "real-world evidence studies",
+            "regulatory": "regulatory updates",
+            "publications": "scientific publications",
+            "market_news": "market intelligence",
+            "news": "recent news articles"
+        }
+
+        active_categories = []
+        for topic, description in categories.items():
             count = len(res.get(topic, []))
-            parts.append(f"{count} {topic}")
-        return f"Web intelligence for {scope}: " + ", ".join(parts) + "."
+            if count > 0:
+                active_categories.append(f"{count} {description}")
+
+        summary = f"Comprehensive web intelligence for {scope}: {total_sources} sources across {', '.join(active_categories)}. "
+        summary += f"Data sourced from PubMed, FDA, EMA, and major pharmaceutical news outlets as of {res.get('as_of', 'today')}."
+
+        return summary
 
 

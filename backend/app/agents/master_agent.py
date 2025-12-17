@@ -3,12 +3,12 @@ import os
 import json
 import re
 import requests
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Union
 
 from dotenv import load_dotenv
 load_dotenv()
 
-# Import sub-agents
+# Import sub-agents (legacy)
 from .iqvia_agent import IQVIAInsightsAgent
 from .patent_agent import PatentLandscapeAgent
 from .clinical_trials_agent import ClinicalTrialsAgent
@@ -16,10 +16,21 @@ from .web_intelligence_agent import WebIntelligenceAgent
 from .exim_trends_agent import EximTrendsAgent
 from .internal_knowledge_agent import InternalKnowledgeAgent
 
+# Import new infrastructure
+from app.models.query_intent import QueryIntent
+from app.workflow.orchestrator import WorkflowOrchestrator
+from app.agents.nlp_agent import NLPAgent
+
 
 class MasterAgent:
+    """
+    Enhanced MasterAgent supporting both:
+    1. Legacy structured input (molecule + disease + region)
+    2. New prompt-based input with multi-stage workflows
+    """
+    
     def __init__(self):
-        # Initialize sub agents
+        # Legacy sub agents (for backward compatibility)
         self.iqvia_agent = IQVIAInsightsAgent()
         self.patent_agent = PatentLandscapeAgent()
         self.clinical_agent = ClinicalTrialsAgent()
@@ -27,27 +38,102 @@ class MasterAgent:
         self.exim_agent = EximTrendsAgent()
         self.internal_agent = InternalKnowledgeAgent()
 
+        # New infrastructure
+        self.workflow_orchestrator = WorkflowOrchestrator()
+        self.nlp_agent = NLPAgent()
+
         # Gemini config
         self.gemini_key = os.getenv("GEMINI_API_KEY")
         self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 
         if not self.gemini_key:
-            raise ValueError("Missing GEMINI_API_KEY in .env")
+            print("[MasterAgent] WARNING: GEMINI_API_KEY not found, synthesis features limited")
 
-        print(f"[MasterAgent] Using Gemini model: {self.gemini_model}")
+        print(f"[MasterAgent] Initialized with multi-stage workflow support")
 
     async def handle_query(self, query: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Handle query - supports both structured and prompt inputs.
+        
+        Args:
+            query: Can contain:
+                - Structured: {"molecule": "...", "disease": "...", "region": "..."}
+                - Prompt: {"prompt": "free text strategic question"}
+        """
+        # Check if this is a prompt-based query
+        if "prompt" in query:
+            return await self.handle_prompt_query(query["prompt"])
+        
+        # Legacy structured input
         molecule = query.get("molecule")
         disease = query.get("disease") or query.get("indication")
         region = query.get("region")
 
         if not molecule:
-            raise ValueError("MasterAgent.handle_query requires 'molecule'")
+            raise ValueError("MasterAgent.handle_query requires 'molecule' or 'prompt'")
 
         return self.analyze_molecule(molecule, disease, region)
+    
+    async def handle_prompt_query(self, prompt: str) -> Dict[str, Any]:
+        """
+        NEW: Handle free-text strategic prompt.
+        
+        Args:
+            prompt: Natural language strategic question
+            
+        Returns:
+            Multi-stage workflow results
+        """
+        # Step 1: Parse prompt with NLP Agent
+        query_intent = self.nlp_agent.parse_prompt(prompt)
+        
+        print(f"[MasterAgent] Parsed intent: {query_intent.intent_type}")
+        print(f"[MasterAgent] Workflow stages: {query_intent.workflow_stages}")
+        
+        # Step 2: Execute workflow
+        workflow_result = self.workflow_orchestrator.execute(query_intent)
+        
+        # Step 3: Add Gemini synthesis if available
+        if self.gemini_key:
+            try:
+                gemini_synthesis = self._synthesize_with_gemini(workflow_result)
+                workflow_result["gemini_synthesis"] = gemini_synthesis
+            except Exception as e:
+                print(f"[MasterAgent] Gemini synthesis failed: {e}")
+                workflow_result["gemini_synthesis"] = self._mock_synthesis(
+                    query_intent.primary_entity or "unknown",
+                    "Gemini synthesis failed"
+                )
+        
+        return workflow_result
 
-    def analyze_molecule(self, molecule: str, disease: Optional[str], region: Optional[str]) -> Dict[str, Any]:
-
+    def analyze_molecule(
+        self, 
+        molecule: str, 
+        disease: Optional[str], 
+        region: Optional[str],
+        use_new_workflow: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Analyze molecule using either legacy or new workflow.
+        
+        Args:
+            molecule: Molecule name
+            disease: Disease/indication
+            region: Geographic region
+            use_new_workflow: If True, use new orchestrator; if False, use legacy
+        """
+        
+        if use_new_workflow:
+            # Use new workflow orchestrator
+            query_intent = QueryIntent.from_structured_input(
+                molecule=molecule,
+                disease=disease,
+                region=region
+            )
+            return self.workflow_orchestrator.execute(query_intent)
+        
+        # Legacy workflow - maintain backward compatibility
         # Run all sub agents
         iqvia = self.iqvia_agent.run({"molecule": molecule, "region": region})
         patents = self.patent_agent.run({"molecule": molecule, "indication": disease})
